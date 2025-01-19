@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+    <installation srtype="ext">
+        <primary-disk>nvme0n1</primary-disk>
+        <keymap>fr</keymap>
+        <admin-interface name="eth0" proto="static" />
+        <ipaddr>192.168.1.2</ipaddr>
+        <subnet>255.255.255.0</subnet>
+        <gateway>192.168.1.1</gateway>
+        <name-server>8.8.8.8</name-server>
+        <root-password>ty7YzK2wzb2N</root-password>
+        <timezone>Europe/Paris</timezone>
+        <source type="url">http://mirrors.xcp-ng.org/netinstall/8.3/</source>
+    </installation>

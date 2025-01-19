@@ -1,0 +1,11 @@
+---
+- name: install lighttpd
+  apt:
+    name: lighttpd
+    state: present
+
+- name: configure lighttpd
+  copy:
+    src: lighttpd.conf
+    dest: /etc/lighttpd/
+  notify: restart lighttpd

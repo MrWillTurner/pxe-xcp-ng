@@ -1,0 +1,41 @@
+---
+- name: download xcp-ng 8.3 netinstall image
+  get_url:
+    url: https://updates.xcp-ng.org/isos/8.3/xcp-ng-8.3.0-netinstall.iso
+    dest: /tmp/
+    mode: 0755
+
+- name: Create a Directory /tmp/iso
+  file:
+    path: /tmp/iso
+    state: directory
+    mode: 0755
+
+- name: Mount image 
+  mount:
+    path: /tmp/iso
+    src: /tmp/xcp-ng-8.3.0-netinstall.iso
+    fstype: iso9660
+    opts: ro,noauto
+    state: ephemeral
+
+- name: Copy /tmp/iso content to /tftpboot
+  copy:
+    src: /tmp/iso/
+    dest: /tftpboot
+    remote_src: yes
+
+- name: Unmount image
+  mount:
+    path: /tmp/iso
+    state: unmounted
+
+- name: configure xcp-ng grub
+  copy:
+    src: grub.cfg
+    dest: /tftpboot/EFI/xenserver
+
+- name: configure xcp-ng answerfile
+  copy:
+    src: answerfile.xml
+    dest: /tftpboot

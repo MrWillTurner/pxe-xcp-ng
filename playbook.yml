@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    - role: dhcp
+    - role: tftp
+    - role: http
+    - role: xcp-ng
