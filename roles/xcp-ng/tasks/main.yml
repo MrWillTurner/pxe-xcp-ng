@@ -31,11 +31,11 @@
     state: unmounted
 
 - name: configure xcp-ng grub
-  copy:
+  template:
     src: grub.cfg
     dest: /tftpboot/EFI/xenserver
 
 - name: configure xcp-ng answerfile
-  copy:
+  template:
     src: answerfile.xml
     dest: /tftpboot

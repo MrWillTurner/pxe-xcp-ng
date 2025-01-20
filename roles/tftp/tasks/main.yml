@@ -10,7 +10,7 @@
     state: directory
 
 - name: configure tftp
-  copy:
+  template:
     src: tftpd-hpa
     dest: /etc/default/
   notify: restart tftp

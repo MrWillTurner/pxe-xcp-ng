@@ -5,7 +5,7 @@
     state: present
 
 - name: configure lighttpd
-  copy:
+  template:
     src: lighttpd.conf
     dest: /etc/lighttpd/
   notify: restart lighttpd
